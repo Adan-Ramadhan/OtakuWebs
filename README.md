@@ -10,5 +10,5 @@ Big thank to Rizky Haksono for made this api <br/>
 Github: (https://github.com/rizkyhaksono)
 
 
-API from (https://github.com/rizkyhaksono/otakudesu-be)
+API from (https://github.com/rizkyhaksono/otakudesu-be) <br/>
 API docs (https://otakudesudocs.natee.my.id/)
