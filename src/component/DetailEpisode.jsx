@@ -18,7 +18,7 @@ const DetailEpisode = ({ watchAnime }) => {
           </div>
 
           <div className="mb-5">
-            <iframe src={watchAnime.stream_url} className="w-full h-60 rounded-lg"></iframe>
+            <iframe src={watchAnime.stream_url} className="w-full h-60 md:h-96 xl:h-[700px] rounded-lg"></iframe>
           </div>
         </div>
       ) : (

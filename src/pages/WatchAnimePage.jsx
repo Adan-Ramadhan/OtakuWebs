@@ -22,7 +22,7 @@ const WatchAnimePage = () => {
     <>
       {watchAnime ? (
         <div className="w-full min-h-auto p-5">
-          <div className="w-full xl:w-3/4 mx-auto border rounded-lg p-5">
+          <div className="w-full xl:w-3/4 mx-auto border overflow-hidden rounded-lg p-5">
             <DetailEpisode watchAnime={watchAnime} />
             <DownloadAnime watchAnime={watchAnime.download_urls}/>
           </div>
