@@ -11,7 +11,7 @@ const Headers = () => {
 
   return (
     <div className="w-full min-h-auto flex flex-row justify-between shadow p-3 items-center">
-      <div className="w-full">
+      <div className="w-full ">
         <button onClick={handleIsOpenNavbar} className="block md:hidden">
           <RxHamburgerMenu />
         </button>

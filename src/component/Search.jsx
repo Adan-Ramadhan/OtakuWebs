@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AnimeContext } from "../context/AnimeProvider";
-import DetailAnime from "./DetailAnime";
 
 const Search = () => {
-  const { fetchDetailAnime, searchSlug } = useContext(AnimeContext);
+  const { fetchDetailAnime } = useContext(AnimeContext);
   const [detailAnime, setDetailAnime] = useState(null);
 
   const handleOnChange = (e) => {
@@ -20,25 +19,18 @@ const Search = () => {
     fetchDetailAnime(detailAnime);
   };
 
-  console.log(searchSlug);
 
   return (
-    <div className="w-full">
-      <div className="w-96 mx-auto overflow-hidden rounded-md mb-10">
-        <form onSubmit={handleSubmit} className="flex ">
-          <input type="text" placeholder="search anime..." onChange={handleOnChange} className="border-2 w-full px-3" />
-          <button type="submit" className="bg-black text-white font-semibold p-2">
+    <div className="w-full ">
+      <div className="w-full overflow-hidden mb-14">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+          <input type="text" placeholder="search anime..." onChange={handleOnChange} className="border-2 w-full p-1 rounded-md" />
+          <button type="submit" className="bg-black text-white font-semibold p-2 sm:px-4 rounded-md">
             Search
           </button>
         </form>
       </div>
-      {searchSlug ? (
-        <div className="w-full xl:w-3/4 mx-auto">
-          <DetailAnime detailAnime={searchSlug} />
-        </div>
-      ) : (
-        <div>Not Found</div>
-      )}
+      
     </div>
   );
 };

@@ -12,7 +12,7 @@ const DetailAnime = ({ detailAnime }) => {
 
             <div className="flex flex-col md:flex-row mb-10 gap-y-5">
               <div className="basis-1/2 xl:basis-1/4 mx-auto md:mx-0">
-                <img src={detailAnime.poster} className="w-90 h-96 rounded-lg overflow-hidden " />
+                <img src={detailAnime.poster} className="w-90 h-96 md:mx-auto rounded-lg overflow-hidden " />
               </div>
 
               <div className="basis-1/2 xl:basis-3/4 ">
