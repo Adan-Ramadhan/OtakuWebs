@@ -1,4 +1,5 @@
 import { RxCross2 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ handleIsOpenNavbar, isNavbarOpen }) => {
   return (
@@ -11,9 +12,9 @@ const Navbar = ({ handleIsOpenNavbar, isNavbarOpen }) => {
 
       <nav>
         <ul className="flex justify-center items-center flex-col md:flex-row md:justify-evenly">
-          <li className="text-sm font-semibold tracking-wide text-slate-400 md:text-slate-700 md:hover:text-slate-400 hover:text-slate-700">Home</li>
-          <li className="text-sm font-semibold tracking-wide text-slate-400 md:text-slate-700 md:hover:text-slate-400 hover:text-slate-700">Anime</li>
-          <li className="text-sm font-semibold tracking-wide text-slate-400 md:text-slate-700 md:hover:text-slate-400 hover:text-slate-700">Genre</li>
+          <li className="text-sm font-semibold tracking-wide text-slate-400 md:text-slate-700 md:hover:text-slate-400 hover:text-slate-700"><Link to="/">Home</Link></li>
+          <li className="text-sm font-semibold tracking-wide text-slate-400 md:text-slate-700 md:hover:text-slate-400 hover:text-slate-700"><Link to="">Anime</Link></li>
+          <li className="text-sm font-semibold tracking-wide text-slate-400 md:text-slate-700 md:hover:text-slate-400 hover:text-slate-700"><Link to="/genres">Genre</Link></li>
         </ul>
       </nav>
     </div>

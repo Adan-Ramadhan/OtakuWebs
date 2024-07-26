@@ -6,12 +6,12 @@ const CompleteAnime = () => {
   const { completeAnime } = useContext(AnimeContext);
 
   return (
-    <div className="w-full p-5 rounded-lg mb-4 border shadow">
+    <div className="w-full lg:w-3/4 mx-auto p-5 rounded-lg mb-4 border shadow">
       <div className="w-full mb-4">
         <h1 className="text-center font-bold text-2xl lg:text-3xl">Complete Anime</h1>
       </div>
 
-      <div className="w-full  lg:w-3/4 mx-auto  grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 lg:gap-5 gap-2">
+      <div className="w-full    grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 lg:gap-5 gap-2">
         {completeAnime.map((element, index) => {
           return (
             <div key={index} className="w-full shadow rounded-lg  flex flex-col overflow-hidden">

@@ -6,10 +6,7 @@ import CompleteAnime from "../component/CompleteAnime";
 
 const Homepage = () => {
   return (
-    <div>
-      <div>
-        <Headers />
-      </div>
+    <div className="w-full min-h-auto">
 
       <div className="w-full min-h-auto lg:min-h-96 flex flex-col items-center justify-center p-10 gap-y-5 ">
         <div className="w-full md:w-3/4 lg:w-1/2 text-left lg:text-center">

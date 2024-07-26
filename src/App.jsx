@@ -3,18 +3,23 @@ import Homepage from "./pages/Homepage";
 import ParentComponent from "./pages/Test";
 import DetailAnimePage from "./pages/DetailAnimePage";
 import WatchAnimePage from "./pages/WatchAnimePage";
+import GenresPage from "./pages/GenresPage";
+import LayoutPages from "./routes/LayoutPages";
+import DetailGenresPage from "./pages/DetailGenresPage";
 
 function App() {
-
-
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/anime/:slug" element={<DetailAnimePage />}/>
-          <Route path="/anime/:slug/episodes/:episodes" element={<WatchAnimePage/>} />
-          <Route path="/test" element={<ParentComponent />} />
+          <Route path="/" element={<LayoutPages />}>
+            <Route index element={<Homepage />} />
+            <Route path="/genres" element={<GenresPage />} />
+            <Route path="/anime/:slug" element={<DetailAnimePage />} />
+            <Route path="/genres/:slug" element={<DetailGenresPage />} />
+            <Route path="/anime/:slug/episodes/:episodes" element={<WatchAnimePage />} />
+            <Route path="/test" element={<ParentComponent />} />
+          </Route>
         </Routes>
       </Router>
     </>
