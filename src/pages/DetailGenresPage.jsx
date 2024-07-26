@@ -20,7 +20,7 @@ const DetailGenresPage = () => {
   
 
   return(
-    <div className="w-full min-h-auto mt-14"><DetailGenres detailGenre={detailGenre} /></div>
+    <div className="w-full min-h-auto mt-14"><DetailGenres detailGenre={detailGenre} slug={slug} /></div>
   )
 }
 

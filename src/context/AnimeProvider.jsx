@@ -11,7 +11,7 @@ const AnimeProvider = ({ children }) => {
   const [watchAnime, setWatchAnime] = useState([]);
   const [genreList, setGenreList] = useState([]);
   const [detailGenre, setDetailGenre] = useState([]);
-
+  const [searchSlug, setSearchSlug] = useState(null);
 
   useEffect(() => {
     const fetchAnime = async () => {
@@ -43,6 +43,8 @@ const AnimeProvider = ({ children }) => {
     if (response.ok) {
       const data = await response.json();
       setDetailAnime(data.data);
+      console.log(data.data)
+      setSearchSlug(data.data);
     }
   }, []);
 
@@ -67,7 +69,7 @@ const AnimeProvider = ({ children }) => {
   }, []);
 
 
-  return <AnimeContext.Provider value={{ onGoingAnime, completeAnime, detailAnime, fetchDetailAnime, fetchWatchAnime, watchAnime, genreList, fetchDetailGenre, detailGenre }}>{children}</AnimeContext.Provider>;
+  return <AnimeContext.Provider value={{ onGoingAnime, completeAnime, detailAnime, fetchDetailAnime, fetchWatchAnime, watchAnime, genreList, fetchDetailGenre, detailGenre, searchSlug }}>{children}</AnimeContext.Provider>;
 };
 
 export default AnimeProvider;

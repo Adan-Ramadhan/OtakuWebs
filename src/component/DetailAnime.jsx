@@ -18,7 +18,7 @@ const DetailAnime = ({ detailAnime }) => {
               <div className="basis-1/2 xl:basis-3/4 ">
                 <p className="text-base font-medium border-b pb-2">{detailAnime.synopsis ? detailAnime.synopsis : "Sinopsis belum ada."}</p>
 
-                <p className="font-semibold text-base mb-1">
+                <p className="font-semibold text-base mb-1 pt-2">
                   Rating: <span className="font-semibold bg-slate-100 px-2.5 py-0.5  rounded-full text-sm">{detailAnime.rating ? detailAnime.rating : "none"}</span>
                 </p>
 

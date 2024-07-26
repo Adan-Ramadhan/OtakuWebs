@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 
-const DetailGenres = ({ detailGenre }) => {
+const DetailGenres = ({ detailGenre, slug }) => {
   if (!detailGenre) {
     return <div>Loading...</div>;
   }
 
   const data = detailGenre.anime;
   console.log(detailGenre.anime);
+  console.log(slug);
 
   return (
     <>
       {data ? (
         <div className="w-full xl:w-3/4 mx-auto rounded-lg min-h-auto border p-5">
-          <h1 className="text-center font-bold text-2xl lg:text-3xl">Anime (Genre)</h1>
+          <h1 className="text-center font-bold text-2xl lg:text-3xl">Anime {slug}</h1>
 
           <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 p-5 gap-3">
           {data.map((anime, index) => {
