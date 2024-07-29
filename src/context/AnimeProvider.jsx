@@ -12,6 +12,9 @@ const AnimeProvider = ({ children }) => {
   const [genreList, setGenreList] = useState([]);
   const [detailGenre, setDetailGenre] = useState([]);
   const [searchSlug, setSearchSlug] = useState(null);
+  const [allOngoingAnime, setAllOngoingAnime] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
 
   useEffect(() => {
     const fetchAnime = async () => {
@@ -37,13 +40,25 @@ const AnimeProvider = ({ children }) => {
     fetchGenres();
   }, []);
 
+  const fetchOngoing = useCallback(async (page) => {
+    const response = await fetch(`${URL}/ongoing-anime/${page} `);
+
+    if (response.ok) {
+      const data = await response.json();
+      const setData = await data.data;
+      setAllOngoingAnime(setData);
+      setCurrentPage(setData.paginationData.current_page);
+      setLastPage(setData.paginationData.last_visible_page);
+
+    }
+  }, []);
+
   const fetchDetailAnime = useCallback(async (slug) => {
     const response = await fetch(`${URL}/anime/${slug}`);
 
     if (response.ok) {
       const data = await response.json();
       setDetailAnime(data.data);
-      console.log(data.data)
       setSearchSlug(data.data);
     }
   }, []);
@@ -54,7 +69,6 @@ const AnimeProvider = ({ children }) => {
     if (response.ok) {
       const data = await response.json();
       setWatchAnime(data.data);
-      console.log(data.data);
     }
   }, []);
 
@@ -64,12 +78,14 @@ const AnimeProvider = ({ children }) => {
     if (response.ok) {
       const data = await response.json();
       setDetailGenre(data.data);
-      console.log(data.data);
     }
   }, []);
 
-
-  return <AnimeContext.Provider value={{ onGoingAnime, completeAnime, detailAnime, fetchDetailAnime, fetchWatchAnime, watchAnime, genreList, fetchDetailGenre, detailGenre, searchSlug }}>{children}</AnimeContext.Provider>;
+  return (
+    <AnimeContext.Provider value={{ onGoingAnime, completeAnime, detailAnime, fetchDetailAnime, fetchWatchAnime, watchAnime, genreList, fetchDetailGenre, detailGenre, searchSlug, allOngoingAnime, fetchOngoing, currentPage, lastPage, setCurrentPage }}>
+      {children}
+    </AnimeContext.Provider>
+  );
 };
 
 export default AnimeProvider;

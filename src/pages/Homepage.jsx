@@ -3,6 +3,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { IoIosSearch } from "react-icons/io";
 import OngoingAnime from "../component/OngoingAnime";
 import CompleteAnime from "../component/CompleteAnime";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
@@ -15,8 +16,8 @@ const Homepage = () => {
         </div>
 
         <div className="w-full md:w-3/4 lg:w-1/2 lg:px-20 flex xl:px-60  flex-col md:flex-row  items-center gap-2">
-          <button className="w-full flex items-center gap-x-2  text-base bg-blue-300 py-2 px-3 rounded-lg justify-center font-bold">Get Started <FaArrowRight /></button>
-          <button className="w-full flex items-center gap-x-2  text-base bg-gray-300 py-2 px-3 rounded-lg justify-center font-bold">Search Anime <IoIosSearch /></button>
+          <a href="#started" className="w-full flex items-center gap-x-2  text-base bg-blue-300 py-2 px-3 rounded-lg justify-center font-bold">Get Started <FaArrowRight /></a>
+          <Link to={"/anime"} className="w-full flex items-center gap-x-2  text-base bg-gray-300 py-2 px-3 rounded-lg justify-center font-bold">Search Anime <IoIosSearch /></Link>
         </div>
       </div>
       
