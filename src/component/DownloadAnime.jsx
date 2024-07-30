@@ -6,7 +6,6 @@ const DownloadAnime = ({ watchAnime }) => {
     return <div>Loading...</div>;
   }
 
-  console.log(watchAnime);
   return (
     <>
       {watchAnime ? (

@@ -5,7 +5,6 @@ import DetailAnime from "../component/DetailAnime";
 const SearchAnimePage = () => {
 
   const {searchSlug} = useContext(AnimeContext);
-  console.log(searchSlug);
 
   return (
     <div className="w-full min-h-auto mt-14">

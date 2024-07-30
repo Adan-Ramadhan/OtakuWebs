@@ -19,9 +19,9 @@ const Navbar = ({ handleIsOpenNavbar, isNavbarOpen }) => {
         <ul className="flex justify-start gap-5 bg-white items-center flex-col md:flex-row ">
           <li className={`text-sm font-semibold  tracking-wide ${location.pathname === "/" ? "text-slate-300 " : "text-slate-700"}  hover:text-slate-500`}><Link to={"/"}>Home</Link></li>
           
-          <li className={`text-sm font-semibold  tracking-wide ${location.pathname?.startsWith === "/anime" ? "text-slate-300 " : "text-slate-700"} hover:text-slate-500 `}><Link to={"/anime"}  >Anime</Link></li>
+          <li className={`text-sm font-semibold  tracking-wide ${location.pathname === "/anime" ? "text-slate-300 " : "text-slate-700"} hover:text-slate-500 `}><Link to={"/anime"}  >Anime</Link></li>
           
-          <li className={`text-sm font-semibold  tracking-wide ${location.pathname?.startsWith === "/genres" ? "text-slate-300 " : "text-slate-700"} hover:text-slate-500 `}><Link to={"/genres"} >Genre</Link></li>
+          <li className={`text-sm font-semibold  tracking-wide ${location.pathname === "/genres" ? "text-slate-300 " : "text-slate-700"} hover:text-slate-500 `}><Link to={"/genres"} >Genre</Link></li>
         </ul>
       </nav>
 

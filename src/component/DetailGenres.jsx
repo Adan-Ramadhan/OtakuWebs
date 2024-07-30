@@ -6,8 +6,7 @@ const DetailGenres = ({ detailGenre, slug }) => {
   }
 
   const data = detailGenre.anime;
-  console.log(detailGenre.anime);
-  console.log(slug);
+  
 
   return (
     <>

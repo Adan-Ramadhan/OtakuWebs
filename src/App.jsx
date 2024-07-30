@@ -20,7 +20,7 @@ function App() {
               <Route index element={<Homepage />} />
               <Route path="/genres" element={<GenresPage />} />
               <Route path="/anime" element={<SearchAnimePage />} />
-              <Route path="/ongoing-anime" element={<OngoingAnimePage />} />
+              <Route path="/ongoing-anime/:page" element={<OngoingAnimePage />} />
 
               <Route path="/anime/:slug" element={<DetailAnimePage />} />
               <Route path="/genres/:slug" element={<DetailGenresPage />} />

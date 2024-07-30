@@ -1,25 +1,26 @@
 import { useContext, useEffect, useState } from "react";
 import { AnimeContext } from "../context/AnimeProvider";
 import AllOngoingAnime from "../component/AllOngoingAnime";
+import { useParams } from "react-router-dom";
 
 const OngoingAnimePage = () => {
 
 const { allOngoingAnime, fetchOngoing, currentPage, setCurrentPage, lastPage,} = useContext(AnimeContext);
-const pages = [];
+
+const {page} = useParams();
 
 useEffect(() => {
-  fetchOngoing();
+  fetchOngoing(page);
 }, [])
 
 if(!allOngoingAnime){
   return <div>Loading...</div>
 }
 
-const paginationData = {currentPage, setCurrentPage, lastPage, pages}
 
   return(
     <div>
-      <AllOngoingAnime paginationData={paginationData} allOngoingAnime={allOngoingAnime}/>
+      <AllOngoingAnime allOngoingAnime={allOngoingAnime}/>
     </div>
   )
 }

@@ -3,8 +3,7 @@ import { AnimeContext } from "../context/AnimeProvider";
 import { Link } from "react-router-dom";
 
 const OngoingAnime = () => {
-  const { onGoingAnime } = useContext(AnimeContext);
-  console.log(onGoingAnime);
+  const { onGoingAnime, currentPage } = useContext(AnimeContext);
   return (
     <div className="w-full lg:w-3/4 mx-auto p-5 rounded-lg mb-4 border shadow">
       <div className="w-full mb-4">
@@ -36,7 +35,7 @@ const OngoingAnime = () => {
       </div>
 
       <div className="w-full flex justify-center">
-        <Link to={"/ongoing-anime/1"}>
+        <Link to={`/ongoing-anime/${currentPage}`}>
           <p className="bg-blue-600 hover:bg-blue-500 transition-all duration-300 font-semibold rounded text-white px-4 py-2">See More</p>
         </Link>
       </div>

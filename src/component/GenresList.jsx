@@ -8,7 +8,6 @@ const GenresList = ({genreList}) => {
 if(!genreList){
   return <div>Loading...</div>
 }
-console.log(genreList)
   return(
     <div className="w-full">
       {genreList ? (
