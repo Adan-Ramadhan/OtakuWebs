@@ -62,7 +62,7 @@ const AnimeProvider = ({ children }) => {
       setSearchSlug(data.data);
     }
   }, []);
-
+  
   const fetchWatchAnime = useCallback(async (slug, episodes) => {
     const response = await fetch(`${URL}/anime/${slug}/episodes/${episodes} `);
 

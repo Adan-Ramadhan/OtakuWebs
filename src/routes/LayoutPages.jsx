@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 import Headers from "../component/Headers"
-
+import Footer from "../component/Footer"
 const LayoutPages = ({isActive, setIsActive}) => {
   return(
     <div>
@@ -8,6 +8,7 @@ const LayoutPages = ({isActive, setIsActive}) => {
       <div>
         {<Outlet/>}
       </div>
+      <Footer/>
     </div>
   )
 }

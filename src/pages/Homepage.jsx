@@ -23,7 +23,6 @@ const Homepage = () => {
       
       <div className="w-full p-4"><OngoingAnime/></div>
       <div className="w-full p-4"><CompleteAnime/></div>
-      <div>Footer</div>
     </div>
   );
 };
