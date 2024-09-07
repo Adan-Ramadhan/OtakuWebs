@@ -1,14 +1,8 @@
-# Otaku Webs
+# React + Vite
 
-This is website for streaming anime and ofcourse no ads, I made this website to learning porpose.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Tech i use:
-- React Js
-- Tailwind Css
+Currently, two official plugins are available:
 
-Big thank to Rizky Haksono for made this api <br/>
-Github: (https://github.com/rizkyhaksono)
-
-
-API from (https://github.com/rizkyhaksono/otakudesu-be) <br/>
-API docs (https://otakudesudocs.natee.my.id/)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
