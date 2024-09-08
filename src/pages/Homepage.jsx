@@ -1,7 +1,11 @@
+import AnimeOngoing from "../components/AnimeOngoing";
+
 const Homepage = () => {
   return (
-    <div>
-      <h1 className="font-Poppins font-bold text-xl">Hello World</h1>
+    <div className="w-full min-h-auto">
+      <div>
+        <AnimeOngoing/>
+      </div>
     </div>
   )
 }
