@@ -1,12 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useEffect } from "react";
+import { LoadingContext } from "./LoadingProvider";
 
 export const GetAnimeContext = createContext();
 
 const GetAnime = ({ children }) => {
 
 const [getAnimeOngoing, setGetAnimeOngoin] = useState([]);
-const [loading, setLoading] = useState(true)
+const {setLoading} = useContext(LoadingContext);
 
   useEffect(() => {
     const getAnime = async () => {
@@ -28,7 +29,7 @@ const [loading, setLoading] = useState(true)
     getAnime();
   }, []);
 
-  return <GetAnimeContext.Provider value={{getAnimeOngoing, loading}} >{children}</GetAnimeContext.Provider>;
+  return <GetAnimeContext.Provider value={{getAnimeOngoing}} >{children}</GetAnimeContext.Provider>;
 };
 
 export default GetAnime;

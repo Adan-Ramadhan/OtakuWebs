@@ -3,9 +3,11 @@ import { GetAnimeContext } from "../Context/GetAnime";
 import Loading from "./Loading";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { LoadingContext } from "../Context/LoadingProvider";
 
 const AnimeOngoing = () => {
-  const { getAnimeOngoing, loading } = useContext(GetAnimeContext);
+  const { getAnimeOngoing } = useContext(GetAnimeContext);
+  const { loading } = useContext(LoadingContext);
 
   if (loading) {
     return <Loading />;

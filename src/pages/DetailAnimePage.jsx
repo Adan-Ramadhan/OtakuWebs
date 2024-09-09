@@ -2,17 +2,21 @@ import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { DetailAnimeContext } from "../Context/DetailAnime";
 import Loading from "../components/Loading";
+import { GetAnimeContext } from "../Context/GetAnime";
+import { LoadingContext } from "../Context/LoadingProvider";
 
 const DetailAnimePage = () => {
   const { slug } = useParams();
 
   const { FetchDetailAnime, detailAnime } = useContext(DetailAnimeContext);
+  const {loading, setLoading} = useContext(LoadingContext)
 
   useEffect(() => {
     FetchDetailAnime(slug);
-  }, []);
+    setLoading(false);
+  }, [detailAnime]);
 
-  if (!detailAnime) {
+  if (loading) {
     return <Loading />;
   }
 
