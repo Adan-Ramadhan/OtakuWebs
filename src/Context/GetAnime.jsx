@@ -6,6 +6,7 @@ export const GetAnimeContext = createContext();
 const GetAnime = ({ children }) => {
 
 const [getAnimeOngoing, setGetAnimeOngoin] = useState([]);
+const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getAnime = async () => {
@@ -17,15 +18,17 @@ const [getAnimeOngoing, setGetAnimeOngoin] = useState([]);
 
         const data = await response.json();
         console.log(data.data);
+        setLoading(false)
         setGetAnimeOngoin(data.data.ongoing_anime)
       } catch (error) {
+        setLoading(false)
         console.error("error get anime", error);
       }
     };
     getAnime();
   }, []);
 
-  return <GetAnimeContext.Provider value={{getAnimeOngoing}} >{children}</GetAnimeContext.Provider>;
+  return <GetAnimeContext.Provider value={{getAnimeOngoing, loading}} >{children}</GetAnimeContext.Provider>;
 };
 
 export default GetAnime;

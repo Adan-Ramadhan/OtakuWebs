@@ -1,15 +1,20 @@
 import { useContext } from "react";
 import { GetAnimeContext } from "../Context/GetAnime";
+import Loading from "./Loading";
 
 const AnimeOngoing = () => {
-  const { getAnimeOngoing } = useContext(GetAnimeContext);
+  const { getAnimeOngoing, loading } = useContext(GetAnimeContext);
 
-  console.log(getAnimeOngoing);
+
+  if(loading){
+    return <Loading/>
+  }
+
 
   return (
     <div className="w-full lg:w-3/5 lg:mx-auto min-h-auto p-5">
         <h1 className="font-bold text-xl mb-5">Ongoing</h1>
-      <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <div className="w-full grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2">
         {getAnimeOngoing.map((ongoing, index) => (
           <div key={index} className="w-full rounded-lg relative overflow-hidden  hover:scale-105 transition-transform duration-300">
             <div className="w-full  ">
