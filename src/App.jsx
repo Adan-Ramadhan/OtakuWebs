@@ -3,6 +3,7 @@ import Layout from "./layout/Layout";
 import Homepage from "./pages/Homepage";
 import Underconstruction from "./components/Underconstruction";
 import NotFound from "./components/NotFound";
+import DetailAnimePage from "./pages/DetailAnimePage";
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
         <Route  element={<Layout/>}>
           <Route path="/*" element={<NotFound/> } />
           <Route path="/moe" element={<Homepage/> } />
+          <Route path="/anime/:slug" element={<DetailAnimePage/> } />
         </Route>
       </Routes>
     </Router>
