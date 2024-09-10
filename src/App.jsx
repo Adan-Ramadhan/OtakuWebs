@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage";
 import Underconstruction from "./components/Underconstruction";
 import NotFound from "./components/NotFound";
 import DetailAnimePage from "./pages/DetailAnimePage";
+import DetailEpisodePage from "./pages/DetailEpisodePage";
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
           <Route path="/*" element={<NotFound/> } />
           <Route path="/moe" element={<Homepage/> } />
           <Route path="/anime/:slug" element={<DetailAnimePage/> } />
+          <Route path="/anime/:slug/episodes/:episode" element={<DetailEpisodePage/> } />
         </Route>
       </Routes>
     </Router>

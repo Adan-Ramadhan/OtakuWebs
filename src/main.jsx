@@ -5,14 +5,20 @@ import "./index.css";
 import GetAnime from "./Context/GetAnime.jsx";
 import DetailAnime from "./Context/DetailAnime.jsx";
 import LoadingPovider from "./Context/LoadingProvider.jsx";
+import DetailEpisode from "./Context/DetailEpisode.jsx";
+import EpisodeList from "./Context/EpisodeList.jsx";
 createRoot(document.getElementById("root")).render(
-  <LoadingPovider>
-    <DetailAnime>
-      <GetAnime>
-        <StrictMode>
-          <App />
-        </StrictMode>
-      </GetAnime>
-    </DetailAnime>
-  </LoadingPovider>
+  <EpisodeList>
+    <DetailEpisode>
+      <LoadingPovider>
+        <DetailAnime>
+          <GetAnime>
+            <StrictMode>
+              <App />
+            </StrictMode>
+          </GetAnime>
+        </DetailAnime>
+      </LoadingPovider>
+    </DetailEpisode>
+  </EpisodeList>
 );

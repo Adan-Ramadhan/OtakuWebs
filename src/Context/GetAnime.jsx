@@ -18,7 +18,6 @@ const {setLoading} = useContext(LoadingContext);
         }
 
         const data = await response.json();
-        console.log(data.data);
         setLoading(false)
         setGetAnimeOngoin(data.data.ongoing_anime)
       } catch (error) {
