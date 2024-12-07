@@ -17,7 +17,6 @@ const Homepage = () => {
       setPage((prevPage) => prevPage + 1);
     }
   };
-console.log(hasMore)
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

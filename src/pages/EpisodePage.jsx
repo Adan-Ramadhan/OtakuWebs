@@ -8,25 +8,25 @@ import DetailAnime from "../components/detailAnime/DetailAnime";
 
 const EpisodePage = () => {
   const { fetchDataEpisode, episode } = useContext(EpisodeContext);
-  const {fetchData, detailAnime} = useContext(DetailAnimeContext);
+  // const {fetchData, detailAnime} = useContext(DetailAnimeContext);
   
   const location = useLocation();
 
 
-if(!episode && !detailAnime){
+if(!episode){
   return <Loading/>
 }
 
 useEffect(() => {
-    fetchData(location.pathname);
+    // fetchData(location.pathname);
     fetchDataEpisode(location.pathname);
   }, []);
 
   return(
     <div className="w-full min-h-auto">
       <div className="w-full">
-        <Episode episode={episode} detailAnime={detailAnime}/>
-        <DetailAnime detailAnime={detailAnime} />
+        <Episode episode={episode} />
+        {/* <DetailAnime detailAnime={detailAnime} /> */}
       </div>
     </div>
   ) 
