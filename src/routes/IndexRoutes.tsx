@@ -1,10 +1,16 @@
-const Routes = () => {
-    return (
-        <div>
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Homepage from "../pages/Homepage";
+import OngoingPage from "../pages/Ongoinpage";
 
-        </div>
-    )
-}
+const RoutesRoot = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Homepage />} />
+        <Route path="/ongoing" element={<OngoingPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-
-export default Routes
+export default RoutesRoot;
