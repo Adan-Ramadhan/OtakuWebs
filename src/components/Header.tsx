@@ -10,6 +10,7 @@ type menusType = {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+
   const menus: menusType[] = [
     {
       title: "Home",
@@ -22,6 +23,14 @@ const Header = () => {
     {
       title: "Complete",
       url: "/complete",
+    },
+    {
+      title: "Genre",
+      url: "/genre",
+    },
+    {
+      title: "Schedule",
+      url: "/schedule",
     },
   ];
 
@@ -63,7 +72,7 @@ const Header = () => {
       </div>
 
       {/* Dekstop Header */}
-      <div className="w-full lg:w-3/4 lg:mx-auto p-3 md:flex hidden items-center justify-between">
+      <div className="w-full xl:w-3/4 lg:mx-auto p-3 md:flex hidden items-center justify-between">
         <div>
           <h1 className="font-semibold text-2xl">Otaku Webs</h1>
         </div>

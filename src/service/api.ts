@@ -1,30 +1,37 @@
+import apiClient from "./apiClient";
 
-import apiClient from "./apiClient"
-
-const baseUrl = "https://backend.ryzendesu.vip"
+const baseUrl = "https://backend.ryzendesu.vip";
 
 class api {
-    static async getAnimeOngoing(params: string, page: number) {
-        try {
-            const res = await apiClient.get(`${baseUrl}/anime?type=${params}&page=${page}`)
+  static async getAllAnime(params: string, page: number) {
+    try {
+      const res = await apiClient.get(
+        `${baseUrl}/anime?type=${params}&page=${page}`
+      );
 
-            return res.data
-
-        } catch (error: any) {
-            console.log("Fail to fetch anime ongoing", error)
-        }
+      return res.data;
+    } catch (error: any) {
+      console.log("Fail to fetch anime ongoing", error);
     }
-    static async getDetailAnime(params: string) {
-        try {
-            const res = await apiClient.get(`${baseUrl}/anime?slug=${params}`)
+  }
+  static async getGenre() {
+    try {
+      const res = await apiClient.get(`${baseUrl}/genre`);
 
-            return res.data
-
-        } catch (error: any) {
-            console.log("Fail to fetch anime slug", error)
-        }
+      return res.data;
+    } catch (error: any) {
+      console.log("Fail to fetch anime genre", error);
     }
+  }
+  static async getDetailAnime(params: string) {
+    try {
+      const res = await apiClient.get(`${baseUrl}/anime?slug=${params}`);
+
+      return res.data;
+    } catch (error: any) {
+      console.log("Fail to fetch anime slug", error);
+    }
+  }
 }
 
-
-export default api
+export default api;
