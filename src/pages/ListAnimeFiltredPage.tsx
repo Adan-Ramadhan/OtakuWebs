@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
-import { data, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import api from "../service/api";
 import SkeletonComp from "../components/SkeletonComp";
+import type { genresType } from "../types/genresType";
 
 const ListAnimeFiltredPage = () => {
   const params = useParams();
 
   const slug = params.slug;
 
-  const [isGenres, setIsGenres] = useState([]);
+  const [isGenres, setIsGenres] = useState<genresType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isPage, setIsPage] = useState<number>(1);
+const [isError, setIsError] = useState<string | null>(null)
+
+
+
   useEffect(() => {
     async function fetchData() {
       try {

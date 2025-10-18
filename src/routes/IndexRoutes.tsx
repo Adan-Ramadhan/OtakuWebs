@@ -6,6 +6,7 @@ import GenrePage from "../pages/GenrePage";
 import DetailPage from "../pages/DetailPage";
 import NotFound from "../components/NotFound";
 import ListAnimeFiltredPage from "../pages/ListAnimeFiltredPage";
+import SchedulePage from "../pages/SchedulePage";
 
 const RouterRoot = () => {
   return (
@@ -16,6 +17,7 @@ const RouterRoot = () => {
         <Route path="/complete" element={<CompletePage />} />
         <Route path="/detail/:slug" element={<DetailPage />} />
         <Route path="/genre" element={<GenrePage />} />
+        <Route path="/schedule" element={<SchedulePage />} />
         <Route path="/anime/:slug" element={<ListAnimeFiltredPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
