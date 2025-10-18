@@ -22,5 +22,5 @@ export type detailAnimeType = {
   tipe: string;
   totalEpisode: string;
   lengkap: lengkapType[];
-  episode: episodeType[];
+  episodes: episodeType[];
 };

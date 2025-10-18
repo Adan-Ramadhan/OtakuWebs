@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import api from "../service/api";
 import SkeletonComp from "../components/SkeletonComp";
 import type { genresType } from "../types/genresType";
+import Loading from "../components/Loading";
 
 const ListAnimeFiltredPage = () => {
   const params = useParams();
@@ -12,9 +13,7 @@ const ListAnimeFiltredPage = () => {
   const [isGenres, setIsGenres] = useState<genresType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isPage, setIsPage] = useState<number>(1);
-const [isError, setIsError] = useState<string | null>(null)
-
-
+  const [isError, setIsError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -25,6 +24,9 @@ const [isError, setIsError] = useState<string | null>(null)
         console.log("ini respon datanya hehe:", data);
       } catch (error) {
         console.log("Fail to fetch data:", error);
+        if (error instanceof Error) {
+          setIsError(error.message);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -33,6 +35,11 @@ const [isError, setIsError] = useState<string | null>(null)
     fetchData();
   }, []);
 
+  if (isLoading) return <Loading />;
+  if (isError) return <p className="text-red-500">⚠️{isError}</p>;
+  if (!isGenres) return <p>Genres not Found</p>;
+
+  
   return (
     <div className="w-full min-h-auto">
       <div className="w-full md:w-3/4 xl:w-1/2 md:mx-auto mt-10 p-3">

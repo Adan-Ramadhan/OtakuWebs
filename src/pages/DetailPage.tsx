@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import api from "../service/api";
 import type { detailAnimeType } from "../types/detailType";
 import Loading from "../components/Loading";
@@ -11,7 +11,7 @@ import Loading from "../components/Loading";
 const DetailPage = () => {
   const params = useParams();
 
-  const slug = params.slug;
+  const slug = params.slug || "";
 
   const [isDetailAnime, setIsDetailAnime] = useState<detailAnimeType | null>(
     null
@@ -47,18 +47,18 @@ const DetailPage = () => {
 
   function Episode() {
     return (
-      <div>
+      <div className="w-full sm:w-3/4 lg:w-1/2 sm:mx-auto">
         <h1 className="font-semibold text-lg mb-3 md:text-xl">Episode</h1>
-        {isDetailAnime?.episode.map((episod, i) => (
-          <div key={i}>
-            <ul>
-              <li>
-                <p>{episod?.judul}</p>
-                <p>{episod?.tanggal}</p>
+        <ul className="border border-slate-300">
+          {isDetailAnime?.episodes.map((episod, i) => (
+            <Link key={i} to={`/episode/${episod.slug}`}>
+              <li className="border-b bg-white hover:bg-slate-100 border-slate-300 p-2 flex items-center  justify-between text-sm text-slate-500">
+                <p className="w-3/4"> {episod?.judul}</p>
+                <p className="w-1/4 text-xs text-right">{episod?.tanggal}</p>
               </li>
-            </ul>
-          </div>
-        ))}
+            </Link>
+          ))}
+        </ul>
       </div>
     );
   }
@@ -66,7 +66,7 @@ const DetailPage = () => {
   return (
     <div className="w-full">
       <div className="w-full mt-10 p-3">
-        <div className="w-full sm:w-3/4 lg:w-1/2 sm:mx-auto flex flex-col md:flex-row md:gap-x-5 mb-5 items-center">
+        <div className="w-full sm:w-3/4 lg:w-1/2 sm:mx-auto flex flex-col md:flex-row md:gap-x-5 mb-5 sm:mb-20 items-center">
           <div className="w-64 md:w-72 lg:w-80 relative rounded-xl border mb-3 border-slate-300 overflow-hidden">
             <img src={isDetailAnime?.gambar} className="w-full object-cover" />
           </div>
@@ -88,7 +88,7 @@ const DetailPage = () => {
           </div>
         </div>
 
-        {/* <div>{Episode()}</div> */}
+        <div>{Episode()}</div>
       </div>
     </div>
   );
