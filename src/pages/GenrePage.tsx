@@ -37,7 +37,7 @@ console.log("genre", isGenres);
         ) : (
           <div className="flex  flex-wrap gap-5">
             {isGenres.map((genre, i) => (
-              <Link to={`/${genre.slug}`} key={i} className="cursor-pointer hover:bg-orange-500 hover:text-white transition-all ease-in-out duration-500 border border-slate-400 p-2 rounded">
+              <Link to={`/anime/${genre.slug}`} key={i} className="cursor-pointer hover:bg-orange-500 hover:text-white transition-all ease-in-out duration-500 border border-slate-400 p-2 rounded">
                 <p>{genre.judul}</p>
               </Link>
             ))}

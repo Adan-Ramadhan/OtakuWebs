@@ -26,15 +26,13 @@ const OngoingPage = () => {
         setLoading(false);
       }
     }
-    console.log(isOngoing);
-    console.log(isPage);
-
+    
     fetchAnime();
   }, [isPage]);
-
+  
   return (
     <div className="w-full min-h-auto">
-      <div className="w-full md:w-3/4 xl:w-1/2 md:mx-auto p-3">
+      <div className="w-full md:w-3/4 xl:w-1/2 mt-10 md:mx-auto p-3">
         <div className="w-full text-center mb-10">
           <h1 className="font-bold text-2xl">On Going</h1>
           <p className="text-slate-500 text-sm">
@@ -46,7 +44,7 @@ const OngoingPage = () => {
         ) : (
           <div className="mb-5 flex flex-wrap  justify-center gap-5">
             {isOngoing.map((ongoing, i) => (
-              <Link key={i} to={`/anime/${ongoing.slug}`}>
+              <Link key={i} to={`/detail/${ongoing.slug}`}>
                 <div className="w-48 border border-slate-200 h-full hover:shadow-lg transition-all duration-500 ease-in-out rounded-lg overflow-hidden ">
                   <img
                     src={ongoing.gambar}

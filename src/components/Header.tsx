@@ -53,7 +53,7 @@ const Header = () => {
         <nav
           className={`${
             isOpen ? " left-0" : "-left-64"
-          } fixed top-0 w-64 bg-white shadow-lg transition-all  ease-in-out duration-500 h-full p-3`}
+          } fixed top-0 w-64 bg-white shadow-lg transition-all z-10 ease-in-out duration-500 h-full p-3`}
         >
           <ul className="flex justify-start flex-col gap-y-3 ">
             <li className="mb-10">

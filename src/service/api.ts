@@ -23,10 +23,27 @@ class api {
       console.log("Fail to fetch anime genre", error);
     }
   }
-  static async getDetailAnime(params: string) {
+  static async getAnimeGenre(genre: string) {
     try {
-      const res = await apiClient.get(`${baseUrl}/anime?slug=${params}`);
+      const res = await apiClient.get(`${baseUrl}/anime?genre=${genre}`);
 
+      return res.data;
+    } catch (error: any) {
+      console.log("Fail to fetch anime genre", error);
+    }
+  }
+  static async getDetailAnime(slug: string) {
+    try {
+      const res = await apiClient.get(`${baseUrl}/anime/${slug}`);
+      console.log("ini respon dari api:", res.data);
+      return res.data;
+    } catch (error: any) {
+      console.log("Fail to fetch anime slug", error);
+    }
+  }
+  static async getEpisodes(slug: string) {
+    try {
+      const res = await apiClient.get(`${baseUrl}/episode/${slug}`);
       return res.data;
     } catch (error: any) {
       console.log("Fail to fetch anime slug", error);

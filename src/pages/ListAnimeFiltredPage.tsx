@@ -1,57 +1,55 @@
 import { useEffect, useState } from "react";
+import { data, Link, useParams } from "react-router-dom";
 import api from "../service/api";
-import { Link } from "react-router-dom";
 import SkeletonComp from "../components/SkeletonComp";
 
-type completeType = {
-  judul: string;
-  gambar: string;
-  slug: string;
-};
+const ListAnimeFiltredPage = () => {
+  const params = useParams();
 
-const CompletePage = () => {
-  const [isComplete, setIsComplete] = useState<completeType[]>([]);
+  const slug = params.slug;
+
+  const [isGenres, setIsGenres] = useState([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isPage, setIsPage] = useState<number>(1);
-  const [loading, setLoading] = useState<boolean>(false);
-
   useEffect(() => {
-    async function fetchAnime() {
-      setLoading(true);
+    async function fetchData() {
       try {
-        const data = await api.getAllAnime("complete", isPage);
-
-        setIsComplete(data);
+        setIsLoading(true);
+        const data = await api.getAnimeGenre(slug);
+        setIsGenres(data);
+        console.log("ini respon datanya hehe:", data);
       } catch (error) {
-        console.error("Error fetching complete:", error);
+        console.log("Fail to fetch data:", error);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     }
-    fetchAnime();
-  }, [isPage]);
+
+    fetchData();
+  }, []);
 
   return (
     <div className="w-full min-h-auto">
-      <div className="w-full md:w-3/4 mt-10 xl:w-1/2 md:mx-auto p-3">
+      <div className="w-full md:w-3/4 xl:w-1/2 md:mx-auto mt-10 p-3">
         <div className="w-full text-center mb-10">
-          <h1 className="font-bold text-2xl">Complete Anime</h1>
+          <h1 className="font-bold text-2xl">{slug?.toUpperCase()}</h1>
           <p className="text-slate-500 text-sm">
-            You can re-watch your fav anime in here, we have many to your view.
+            Choose your fav anime with genre you like.
           </p>
         </div>
-        {loading ? (
+        {isLoading ? (
           <SkeletonComp count={4} />
         ) : (
           <div className="mb-5 flex flex-wrap  justify-center gap-5">
-            {isComplete.map((complete, i) => (
-              <Link key={i} to={`/detail/${complete.slug}`}>
+            {isGenres.map((genre, i) => (
+              <Link key={i} to={`/detail/${genre.slug}`}>
                 <div className="w-48 border border-slate-200 h-full hover:shadow-lg transition-all duration-500 ease-in-out rounded-lg overflow-hidden ">
                   <img
-                    src={complete.gambar}
-                    alt={complete.judul}
+                    src={genre.gambar}
+                    alt={genre.judul}
                     className="w-full h-64 lg:h-80 object-cover"
                   />
-                  <p className="text-sm font-semibold p-3">{complete.judul}</p>
+                  <p className="text-sm font-semibold p-3">{genre.judul}</p>
                 </div>
               </Link>
             ))}
@@ -68,7 +66,7 @@ const CompletePage = () => {
           </button>
 
           <span>
-            {isPage}...{isComplete.length}
+            {isPage}...{isGenres.length}
           </span>
 
           <button
@@ -83,4 +81,4 @@ const CompletePage = () => {
   );
 };
 
-export default CompletePage;
+export default ListAnimeFiltredPage;
