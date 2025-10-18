@@ -38,7 +38,7 @@ const DetailPage = () => {
     }
 
     fetchDetailAnime();
-  }, []);
+  }, [slug]);
 
   console.log("detail animeh", isDetailAnime);
   if (isLoading) return <Loading />;
