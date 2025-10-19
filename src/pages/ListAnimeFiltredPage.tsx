@@ -8,7 +8,7 @@ import Loading from "../components/Loading";
 const ListAnimeFiltredPage = () => {
   const params = useParams();
 
-  const slug = params.slug;
+  const slug = params.slug || "";
 
   const [isGenres, setIsGenres] = useState<genresType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
