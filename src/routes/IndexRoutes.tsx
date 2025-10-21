@@ -8,7 +8,7 @@ import NotFound from "../components/NotFound";
 import ListAnimeFiltredPage from "../pages/ListAnimeFiltredPage";
 import SchedulePage from "../pages/SchedulePage";
 import StreamPage from "../pages/StreamPage";
-import SearchPage from "../pages/SearchPage";
+// import SearchPage from "../pages/SearchPage";
 
 const RouterRoot = () => {
   return (
@@ -20,7 +20,7 @@ const RouterRoot = () => {
         <Route path="/detail/:slug" element={<DetailPage />} />
         <Route path="/genre" element={<GenrePage />} />
         <Route path="/schedule" element={<SchedulePage />} />
-        <Route path="/search" element={<SearchPage />} />
+        {/* <Route path="/search" element={<SearchPage />} /> */}
         <Route path="/anime/:slug" element={<ListAnimeFiltredPage />} />
         <Route path="/episode/:slug" element={<StreamPage />} />
         <Route path="/*" element={<NotFound />} />

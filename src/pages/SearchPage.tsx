@@ -55,6 +55,7 @@ const SearchPage = () => {
 
     console.log("ini hasil search", formData.search)
     console.log("ini hasil respon", isSearch)
+    console.log("ini success ehek:", success)
 
     return (
         <div className="w-full">
