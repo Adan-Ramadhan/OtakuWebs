@@ -32,7 +32,7 @@ const OngoingPage = () => {
   
   return (
     <div className="w-full min-h-auto">
-      <div className="w-full md:w-3/4 xl:w-1/2 mt-10 md:mx-auto p-3">
+      <div className="w-full md:w-3/4 xl:w-1/2 my-10 md:mx-auto p-3">
         <div className="w-full text-center mb-10">
           <h1 className="font-bold text-2xl">On Going</h1>
           <p className="text-slate-500 text-sm">

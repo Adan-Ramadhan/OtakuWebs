@@ -19,9 +19,10 @@ const ListAnimeFiltredPage = () => {
     async function fetchData() {
       try {
         setIsLoading(true);
-        const data = await api.getAnimeGenre(slug);
+        const data = await api.getAnimeGenre(slug, isPage);
         setIsGenres(data);
         console.log("ini respon datanya hehe:", data);
+        console.log("ini respon page hehe:", isPage);
       } catch (error) {
         console.log("Fail to fetch data:", error);
         if (error instanceof Error) {
@@ -33,16 +34,16 @@ const ListAnimeFiltredPage = () => {
     }
 
     fetchData();
-  }, []);
+  }, [isPage]);
 
   if (isLoading) return <Loading />;
   if (isError) return <p className="text-red-500">⚠️{isError}</p>;
   if (!isGenres) return <p>Genres not Found</p>;
 
-  
+
   return (
     <div className="w-full min-h-auto">
-      <div className="w-full md:w-3/4 xl:w-1/2 md:mx-auto mt-10 p-3">
+      <div className="w-full md:w-3/4 xl:w-1/2 md:mx-auto my-10 p-3">
         <div className="w-full text-center mb-10">
           <h1 className="font-bold text-2xl">{slug?.toUpperCase()}</h1>
           <p className="text-slate-500 text-sm">
@@ -72,7 +73,7 @@ const ListAnimeFiltredPage = () => {
           <button
             disabled={isPage === 1}
             onClick={() => setIsPage((prev) => prev - 1)}
-            className="bg-orange-500 text-white  px-4 py-1 text-sm rounded disabled:opacity-50"
+            className="bg-orange-500 text-white cursor-pointer px-4 py-1 text-sm rounded disabled:opacity-50"
           >
             Prev
           </button>
@@ -83,7 +84,7 @@ const ListAnimeFiltredPage = () => {
 
           <button
             onClick={() => setIsPage((prev) => prev + 1)}
-            className="bg-orange-500 text-white  px-4 py-1 text-sm rounded"
+            className="bg-orange-500 text-white cursor-pointer px-4 py-1 text-sm rounded"
           >
             Next
           </button>

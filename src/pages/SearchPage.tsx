@@ -5,12 +5,14 @@ import api from "../service/api"
 const SearchPage = () => {
 
 
-    const [isSearch, setIsSearch] = useState<any>()
+    const [isSearch, setIsSearch] = useState<any>([])
     const [formData, SetFormData] = useState<any>({
-        search: ""
+        search: "",
+
     })
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [isError, setIsError] = useState<string | null>(null);
+
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [success, setSuccess] = useState(false);
 
 
 
@@ -23,16 +25,36 @@ const SearchPage = () => {
         })
     }
 
-    async function handleSubmit(e) {
+
+    async function handleSubmit(e: any) {
         e.preventDefault()
         console.log("masuk sini")
-        const data = await api.search(formData)
+        setSuccess(false)
+        setIsLoading(true)
+        try {
 
-        setIsSearch(data)
+
+            const res = await api.search(formData.search)
+
+            if (!res.oke) throw new Error("Fail fetch anime")
+
+
+            setSuccess(true)
+
+            setIsSearch(res)
+            SetFormData({ search: "" })
+            console.log("res hasil search:", res)
+        } catch (error: any) {
+            console.log("fail to search anime", error.message)
+        } finally {
+            setIsLoading(false)
+        }
+
+
     }
-    console.log("hasil submit:", isSearch)
 
-    console.log("ini hasil search", formData)
+    console.log("ini hasil search", formData.search)
+    console.log("ini hasil respon", isSearch)
 
     return (
         <div className="w-full">
@@ -47,8 +69,10 @@ const SearchPage = () => {
                         value={formData.search}
                         onChange={handleChange}
                         placeholder="search by title..."
-                        className=" focus:outline-none focus:ring-0"
+                        className=" focus:outline-none w-full focus:ring-0"
                     />
+
+                    <button type="submit" disabled={isLoading} className="font-semibold hover:text-orange-500 transition-all duration-300 ease-in-out">submit</button>
                 </form>
 
                 <div className="w-full">
