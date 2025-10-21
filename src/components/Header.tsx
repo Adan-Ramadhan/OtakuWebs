@@ -81,7 +81,7 @@ const Header = () => {
             {menus.map((menu, i) => (
               <li
                 key={i}
-                className="text-lg font-semibold text-slate-700 hover:text-orange-500 active:text-orange-700"
+                className="font-semibold text-sm transition-all duration-300 ease-in-out text-slate-700 hover:text-orange-500 active:text-orange-700"
               >
                 <a href={menu.url}>{menu.title}</a>
               </li>
@@ -89,14 +89,14 @@ const Header = () => {
           </ul>
         </nav>
 
-        <form className="border rounded-lg border-slate-500 flex items-center gap-x-2 py-1 px-2">
+        {/* <form className="border rounded-lg border-slate-500 flex items-center gap-x-2 py-1 px-2">
           <FaSearch />
           <input
             type="search"
             placeholder="search title..."
             className=" focus:outline-none focus:ring-0"
           />
-        </form>
+        </form> */}
       </div>
     </header>
   );
