@@ -61,7 +61,7 @@ const SearchPage = () => {
         <div className="w-full">
             <div className="w-full md:w-3/4 md:mx-auto lg:w-1/2 p-3">
 
-                <h3>Search your fav anime here.</h3>
+                <h3 >Search your fav anime here.</h3>
                 <form onSubmit={handleSubmit} className="border rounded-lg border-slate-500 flex items-center gap-x-2 py-1 px-2">
                     <FaSearch />
                     <input
