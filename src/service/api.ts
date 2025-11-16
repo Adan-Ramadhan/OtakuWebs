@@ -32,9 +32,9 @@ class api {
       console.log("Fail to fetch anime genre", error);
     }
   }
-  static async getAnimeGenre(genre: string) {
+  static async getAnimeGenre(genre: string, page: number) {
     try {
-      const res = await apiClient.get(`${baseUrl}/anime?genre=${genre}`);
+      const res = await apiClient.get(`${baseUrl}/anime?genre=${genre}&page=${page}`);
 
       return res.data;
     } catch (error: unknown) {
@@ -55,6 +55,14 @@ class api {
       return res.data;
     } catch (error: unknown) {
       console.log("Fail to fetch anime slug", error);
+    }
+  }
+  static async search(params: string) {
+    try {
+      const res = await apiClient.get(`${baseUrl}/anime?search=${params}`);
+      return res.data;
+    } catch (error: unknown) {
+      console.log("Fail to search anime", error);
     }
   }
 }
