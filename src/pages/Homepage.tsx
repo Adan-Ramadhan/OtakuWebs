@@ -29,7 +29,7 @@ const Homepage = () => {
     <div className="w-full min-h-screen">
       <div className="w-full md:w-3/4 lg:w-1/2 md:mx-auto p-3 ">
         <div className="w-full h-[300px] flex flex-col items-center justify-center my-10 text-center ">
-          <h1 className="font-bold md:text-3xl text-2xl mb-2">
+          <h1 className="font-bold md:text-3xl text-3xl mb-2">
             Stream's Your's Favorite Anime Here.
           </h1>
           <p className="text-slate-500 text-sm mb-5">
@@ -39,14 +39,14 @@ const Homepage = () => {
 
           <Link
             to={`/search`}
-            className="rounded-full transition-all duration-300 ease-in-out px-4 font-semibold text-lg py-1 bg-white hover:bg-orange-500 hover:text-white border-orange-500 border-2"
+            className="rounded-full transition-all duration-300 ease-in-out px-6 font-bold text-lg py-1 bg-white hover:bg-orange-500 hover:text-white border-orange-500 border-2"
           >
             Explore
           </Link>
         </div>
 
         <div className="w-full text-center">
-          <h3 className="text-xl font-semibold mb-3">Our Fitures</h3>
+          <h3 className="text-xl font-semibold mb-3">Our Advantages</h3>
           <ul className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {features.map((feature, i) => (
               <li key={i} className="border border-slate-200 rounded-lg p-2">

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: "https://backend.ryzendesu.vip",
+    baseURL: "https://api-anime-v2.vercel.app/otakudesu",
     timeout: 10000,
 })
 
