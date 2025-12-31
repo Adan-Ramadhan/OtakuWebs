@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import SkeletonComp from "../components/SkeletonComp";
 
 type ongoingType = {
-  judul: string;
-  gambar: string;
-  slug: string;
+  title: string;
+  poster: string;
+  href: string;
 };
 
 const OngoingPage = () => {
@@ -18,8 +18,8 @@ const OngoingPage = () => {
     async function fetchAnime() {
       setLoading(true);
       try {
-        const data = await api.getAllAnime("ongoing", isPage);
-        setIsOngoing(data);
+        const data = await api.getAllAnime();
+        setIsOngoing(data.ongoing.animeList);
       } catch (error) {
         console.error("Error fetching ongoing:", error);
       } finally {
@@ -30,6 +30,11 @@ const OngoingPage = () => {
     fetchAnime();
   }, [isPage]);
   
+  console.log("response:",isOngoing   )
+
+  if(loading) return <SkeletonComp count={5}/>
+
+
   return (
     <div className="w-full min-h-auto">
       <div className="w-full md:w-3/4 xl:w-1/2 my-10 md:mx-auto p-3">
@@ -39,22 +44,24 @@ const OngoingPage = () => {
             have many anime up-to-date in here, enjoy your fav anime.
           </p>
         </div>
-        {loading ? (
-          <SkeletonComp count={4} />
-        ) : (
+        {isOngoing.length > 0 ? (
           <div className="mb-5 flex flex-wrap  justify-center gap-5">
             {isOngoing.map((ongoing, i) => (
-              <Link key={i} to={`/detail/${ongoing.slug}`}>
-                <div className="w-48 border border-slate-200 h-full hover:shadow-lg transition-all duration-500 ease-in-out rounded-lg overflow-hidden ">
+              <Link key={i} to={`/detail/${ongoing.href}`}>
+                <div className="w-40 border border-slate-200 h-full hover:shadow-lg transition-all duration-500 ease-in-out rounded-lg overflow-hidden ">
                   <img
-                    src={ongoing.gambar}
-                    alt={ongoing.judul}
+                    src={ongoing.poster}
+                    alt={ongoing.title}
                     className="w-full h-64 lg:h-80 object-cover"
                   />
-                  <p className="text-sm font-semibold p-3">{ongoing.judul}</p>
+                  <p className="text-sm font-semibold p-3">{ongoing.title}</p>
                 </div>
               </Link>
             ))}
+          </div>
+        ) : (
+          <div className="mb-5 flex flex-wrap  justify-center gap-5">
+            Anime Not Found
           </div>
         )}
 

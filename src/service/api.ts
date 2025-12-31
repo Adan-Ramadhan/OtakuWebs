@@ -1,15 +1,16 @@
 import apiClient from "./apiClient";
 
-const baseUrl = "https://backend.ryzendesu.vip";
+// const baseUrl = "https://backend.ryzendesu.vip";
+const baseUrl = "https://api-anime-v2.vercel.app/anintv";
 
 class api {
-  static async getAllAnime(params: string, page: number) {
+  static async getAllAnime() {
     try {
       const res = await apiClient.get(
-        `${baseUrl}/anime?type=${params}&page=${page}`
+        `${baseUrl}/home?page=1`
       );
 
-      return res.data;
+      return res.data.data;
     } catch (error: unknown) {
       console.log("Fail to fetch anime ongoing", error);
     }
