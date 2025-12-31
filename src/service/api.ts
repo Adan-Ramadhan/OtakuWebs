@@ -1,7 +1,7 @@
 import apiClient from "./apiClient";
 
 // const baseUrl = "https://backend.ryzendesu.vip";
-const baseUrl = "https://api-anime-v2.vercel.app/otakudesu";
+const baseUrl = "https://api-anime-v2.vercel.app/anintv";
 
 class api {
   static async getAllAnime() {
